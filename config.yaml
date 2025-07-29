@@ -1,6 +1,6 @@
 data:
   raw:
-    file_raw: "../data/raw/raw.csv"
+    file_raw: "../data/raw/healthcare-dataset-stroke-data.csv"
     # file2: "../data/raw/file2.csv"
   clean:
     file_clean: "../data/clean/clean.csv"
