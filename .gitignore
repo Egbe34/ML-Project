@@ -7,3 +7,5 @@ notebooks/.DS_Store
 .DS_Store
 *.in
 src/
+anaconda_projects/
+.virtual_documents/
