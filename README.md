@@ -7,12 +7,12 @@ Immediate action can save lives and reduce long-term disability. Awareness of sy
 
 - 🛠 GitHub Repository: [ML-Project](https://github.com/Jessica-Bu/ML-Project)
 - 📋 Trello Board: [Project Tasks & Timeline](https://trello.com/b/CNv59pX7/project-week-7) 
-- Presentation: [Stroke](https://docs.google.com/presentation/d/.../view) 
+- Presentation: [Stroke](https://docs.google.com/presentation/d/1HEfwWbPU7EuFU20r7JdEOZJFBTmaD48V8k8Pujs-2AM/view) 
 
 ## Datasets Used
 
 We use 1 file with raw data.
- *  **Stroke data (healthcare-dataset):** Demographics like age, gender, and account details of Vanguard's clients.
+ *  **Stroke data (healthcare-dataset):** Demographics like age, gender, hypertension,... of clients.
 
 A Metadata(dictionary) is provided to help us understand the content of the columns in each file and guide us through the analysis
 
@@ -31,13 +31,10 @@ A Metadata(dictionary) is provided to help us understand the content of the colu
 
 
 **Comments on the Data:**
-
-* **Main Challenges:** 
-* **Strengths:** 
-* **Weaknesses:** 
+Looks clean, some missing data can be filled or removed to neglect immpact on the analysis
 
 ##  Business Problem & Hypothesis
-Predict stroke based on patient's health metrics to prevent stroke risk
+Predict stroke based on patient's health metrics to prevent risk
 
 * **Question:** 
 * **Conclusion:**  
@@ -51,36 +48,53 @@ _*Business recommendation*_:
 
 Our methodology involved several key steps, focusing on data preprocessing, ML-Model selection, Model training , Model evaluation, and tuning
 
-1.  **Data preprocessing:** 
-    * Datasets were downloaded from kaggle.
-    * Data Cleaning: 
-        * maping categorical values to numerical, drop "id" column, not considering gender "Other"
-        * fillna bmi with average value
-2.  **EDA**
-    * Age: Older patients have a significantly higher risk.
-    * Hypertension & Heart Disease: Strong positive correlation with stroke.
-    * Glucose Level & BMI: Higher values may indicate risk but with some variability.
-    * Smoking Status: Formerly smoked and smokes groups show increased risk.   
+**1. Data preprocessing:** 
+* Datasets were downloaded from kaggle.
+* Data Cleaning: 
+    * maping categorical values to numerical, drop "id" column, not considering gender "Other"
+    * fillna bmi with average value-> other approach ??
+    * reduce some outliers on age , gender, bmi
+   
 
-3.  **Model selection:** 
-    * KNN 
-    * Logistic Regression
-    * Random Forest
+**2. EDA**
+* generic EDA on following columns:
+  * Age: Older patients have a significantly higher risk.
+  * Hypertension & Heart Disease: Strong positive correlation with stroke.
+  * Glucose Level & BMI: Higher values may indicate risk but with some variability.
+  * Smoking Status: Formerly smoked and smokes groups show increased risk.   
+* power transformer on all numerical columns or glucose level for observing the distribution
+* Check relationship with target column "stroke": heatmap for nummerical, chi test for categorical 
 
-4.  **Model training:**  
-* 
-* 
-* 
+**3. Model selection:** 
+* KNN 
+* Logistic Regression
+* Random Forest
 
-5.  **Model evaluation:** 
+**4. Model training:**  
+* Trained train_dataset and predict test ones for every model
+for classification
 
-6.  **Model tuning:**
+**5. Model evaluation:** 
+Evaluate metrics for classification (target is category)
+* Accuracy
+* Recall
+* Prediction
+* F1
+-> Focus on F1 due to imbalanced in target "stroke"
+-> Best performing model Logistic Regression
 
-7.  **Insights:**
+**6. Model tuning:**
+Grid search vs Random Search
 
-  **Data Analysis Tools and Libraries:**
+**7. Insights:**
+* Older adults with medical conditions should be prioritized.
+* Lifestyle factors matter — smoking still plays a role.
+* Medical metrics like glucose and BMI are useful but work best when combined with age or disease.
+* Tree-based models performed best and are interpretable.
+
+## Data Analysis Tools and Libraries:**
 * __Python__: The primary programming language for data manipulation and analysis.
-* __Pandas__:Essential for data loading, cleaning, and transformation.
+* __Pandas__: Essential for data loading, cleaning, and transformation.
 * __Matplotlib / Seaborn__: Used for creating various visualizations (bar charts, line graphs).
 
 ##  Repository Structure
