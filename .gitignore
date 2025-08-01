@@ -1,11 +1,19 @@
 .ipynb_checkpoints/
 .venv/
 .env
+
+#Cache and non-notebooks
 notebooks/.ipynb_checkpoints/
 notebooks/.env
 notebooks/.DS_Store
-.DS_Store
+notebooks/__pycache
+
+#Cache
 *.in
-src/
+.DS_Store
 anaconda_projects/
 .virtual_documents/
+__pycache/
+
+
+src/
